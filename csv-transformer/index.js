@@ -24,11 +24,11 @@ rl.on('line', (row) => {
   const disease = {
     name: line[0],
     nameWithUnderscore: line[0].split(' ').join('_'),
-    symptoms: line.slice(1, 6),
+    symptoms: line.slice(1, 6).map((symptom) => symptom.replaceAll(' ', '')),
   };
 
   const clpFormat = `
-((defrule ${disease.nameWithUnderscore}
+(defrule ${disease.nameWithUnderscore}
   (disease_is ${disease.nameWithUnderscore})
   =>
   (printout t "${disease.name}" crlf)
@@ -38,7 +38,7 @@ rl.on('line', (row) => {
   ${disease.symptoms.map((symptom) => `(has_symptom ${symptom})`).join('\n  ')}
   =>
   (assert (disease_is ${disease.nameWithUnderscore}))
-))
+)
   `;
 
   writer.write(clpFormat);

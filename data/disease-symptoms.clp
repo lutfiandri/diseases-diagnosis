@@ -3,7 +3,7 @@
 ; dataset: https://www.kaggle.com/itachi9604/disease-symptom-description-dataset
 ; ------------------------------------------------------------------------------
 
-((defrule Fungal_infection
+(defrule Fungal_infection
   (disease_is Fungal_infection)
   =>
   (printout t "Fungal infection" crlf)
@@ -13,12 +13,12 @@
   (has_symptom itching)
   (has_symptom skin_rash)
   (has_symptom nodal_skin_eruptions)
-  (has_symptom dischromic _patches)
+  (has_symptom dischromic_patches)
   =>
   (assert (disease_is Fungal_infection))
-))
+)
   
-((defrule Allergy
+(defrule Allergy
   (disease_is Allergy)
   =>
   (printout t "Allergy" crlf)
@@ -31,9 +31,9 @@
   (has_symptom watering_from_eyes)
   =>
   (assert (disease_is Allergy))
-))
+)
   
-((defrule GERD
+(defrule GERD
   (disease_is GERD)
   =>
   (printout t "GERD" crlf)
@@ -47,9 +47,9 @@
   (has_symptom cough)
   =>
   (assert (disease_is GERD))
-))
+)
   
-((defrule Chronic_cholestasis
+(defrule Chronic_cholestasis
   (disease_is Chronic_cholestasis)
   =>
   (printout t "Chronic cholestasis" crlf)
@@ -63,9 +63,9 @@
   (has_symptom loss_of_appetite)
   =>
   (assert (disease_is Chronic_cholestasis))
-))
+)
   
-((defrule Drug_Reaction
+(defrule Drug_Reaction
   (disease_is Drug_Reaction)
   =>
   (printout t "Drug Reaction" crlf)
@@ -76,12 +76,12 @@
   (has_symptom skin_rash)
   (has_symptom stomach_pain)
   (has_symptom burning_micturition)
-  (has_symptom spotting_ urination)
+  (has_symptom spotting_urination)
   =>
   (assert (disease_is Drug_Reaction))
-))
+)
   
-((defrule Peptic_ulcer_diseae
+(defrule Peptic_ulcer_diseae
   (disease_is Peptic_ulcer_diseae)
   =>
   (printout t "Peptic ulcer diseae" crlf)
@@ -95,9 +95,9 @@
   (has_symptom passage_of_gases)
   =>
   (assert (disease_is Peptic_ulcer_diseae))
-))
+)
   
-((defrule AIDS
+(defrule AIDS
   (disease_is AIDS)
   =>
   (printout t "AIDS" crlf)
@@ -110,9 +110,9 @@
   (has_symptom extra_marital_contacts)
   =>
   (assert (disease_is AIDS))
-))
+)
   
-((defrule Diabetes
+(defrule Diabetes
   (disease_is Diabetes)
   =>
   (printout t "Diabetes" crlf)
@@ -126,9 +126,9 @@
   (has_symptom irregular_sugar_level)
   =>
   (assert (disease_is Diabetes))
-))
+)
   
-((defrule Gastroenteritis
+(defrule Gastroenteritis
   (disease_is Gastroenteritis)
   =>
   (printout t "Gastroenteritis" crlf)
@@ -141,9 +141,9 @@
   (has_symptom diarrhoea)
   =>
   (assert (disease_is Gastroenteritis))
-))
+)
   
-((defrule Bronchial_Asthma
+(defrule Bronchial_Asthma
   (disease_is Bronchial_Asthma)
   =>
   (printout t "Bronchial Asthma" crlf)
@@ -157,9 +157,9 @@
   (has_symptom family_history)
   =>
   (assert (disease_is Bronchial_Asthma))
-))
+)
   
-((defrule Hypertension
+(defrule Hypertension
   (disease_is Hypertension)
   =>
   (printout t "Hypertension" crlf)
@@ -173,9 +173,9 @@
   (has_symptom lack_of_concentration)
   =>
   (assert (disease_is Hypertension))
-))
+)
   
-((defrule Migraine
+(defrule Migraine
   (disease_is Migraine)
   =>
   (printout t "Migraine" crlf)
@@ -189,9 +189,9 @@
   (has_symptom excessive_hunger)
   =>
   (assert (disease_is Migraine))
-))
+)
   
-((defrule Cervical_spondylosis
+(defrule Cervical_spondylosis
   (disease_is Cervical_spondylosis)
   =>
   (printout t "Cervical spondylosis" crlf)
@@ -205,9 +205,9 @@
   (has_symptom loss_of_balance)
   =>
   (assert (disease_is Cervical_spondylosis))
-))
+)
   
-((defrule Paralysis
+(defrule Paralysis
   (disease_is Paralysis)
   =>
   (printout t "Paralysis" crlf)
@@ -220,9 +220,9 @@
   (has_symptom altered_sensorium)
   =>
   (assert (disease_is Paralysis))
-))
+)
   
-((defrule Jaundice
+(defrule Jaundice
   (disease_is Jaundice)
   =>
   (printout t "Jaundice" crlf)
@@ -236,9 +236,9 @@
   (has_symptom high_fever)
   =>
   (assert (disease_is Jaundice))
-))
+)
   
-((defrule Malaria
+(defrule Malaria
   (disease_is Malaria)
   =>
   (printout t "Malaria" crlf)
@@ -252,9 +252,9 @@
   (has_symptom headache)
   =>
   (assert (disease_is Malaria))
-))
+)
   
-((defrule Chicken_pox
+(defrule Chicken_pox
   (disease_is Chicken_pox)
   =>
   (printout t "Chicken pox" crlf)
@@ -268,9 +268,9 @@
   (has_symptom high_fever)
   =>
   (assert (disease_is Chicken_pox))
-))
+)
   
-((defrule Dengue
+(defrule Dengue
   (disease_is Dengue)
   =>
   (printout t "Dengue" crlf)
@@ -284,9 +284,9 @@
   (has_symptom fatigue)
   =>
   (assert (disease_is Dengue))
-))
+)
   
-((defrule Typhoid
+(defrule Typhoid
   (disease_is Typhoid)
   =>
   (printout t "Typhoid" crlf)
@@ -300,9 +300,9 @@
   (has_symptom headache)
   =>
   (assert (disease_is Typhoid))
-))
+)
   
-((defrule hepatitis_A
+(defrule hepatitis_A
   (disease_is hepatitis_A)
   =>
   (printout t "hepatitis A" crlf)
@@ -316,9 +316,9 @@
   (has_symptom nausea)
   =>
   (assert (disease_is hepatitis_A))
-))
+)
   
-((defrule Hepatitis_B
+(defrule Hepatitis_B
   (disease_is Hepatitis_B)
   =>
   (printout t "Hepatitis B" crlf)
@@ -332,9 +332,9 @@
   (has_symptom dark_urine)
   =>
   (assert (disease_is Hepatitis_B))
-))
+)
   
-((defrule Hepatitis_C
+(defrule Hepatitis_C
   (disease_is Hepatitis_C)
   =>
   (printout t "Hepatitis C" crlf)
@@ -348,9 +348,9 @@
   (has_symptom yellowing_of_eyes)
   =>
   (assert (disease_is Hepatitis_C))
-))
+)
   
-((defrule Hepatitis_D
+(defrule Hepatitis_D
   (disease_is Hepatitis_D)
   =>
   (printout t "Hepatitis D" crlf)
@@ -364,9 +364,9 @@
   (has_symptom dark_urine)
   =>
   (assert (disease_is Hepatitis_D))
-))
+)
   
-((defrule Hepatitis_E
+(defrule Hepatitis_E
   (disease_is Hepatitis_E)
   =>
   (printout t "Hepatitis E" crlf)
@@ -380,9 +380,9 @@
   (has_symptom yellowish_skin)
   =>
   (assert (disease_is Hepatitis_E))
-))
+)
   
-((defrule Alcoholic_hepatitis
+(defrule Alcoholic_hepatitis
   (disease_is Alcoholic_hepatitis)
   =>
   (printout t "Alcoholic hepatitis" crlf)
@@ -396,9 +396,9 @@
   (has_symptom distention_of_abdomen)
   =>
   (assert (disease_is Alcoholic_hepatitis))
-))
+)
   
-((defrule Tuberculosis
+(defrule Tuberculosis
   (disease_is Tuberculosis)
   =>
   (printout t "Tuberculosis" crlf)
@@ -412,9 +412,9 @@
   (has_symptom cough)
   =>
   (assert (disease_is Tuberculosis))
-))
+)
   
-((defrule Common_Cold
+(defrule Common_Cold
   (disease_is Common_Cold)
   =>
   (printout t "Common Cold" crlf)
@@ -428,9 +428,9 @@
   (has_symptom high_fever)
   =>
   (assert (disease_is Common_Cold))
-))
+)
   
-((defrule Pneumonia
+(defrule Pneumonia
   (disease_is Pneumonia)
   =>
   (printout t "Pneumonia" crlf)
@@ -444,9 +444,9 @@
   (has_symptom breathlessness)
   =>
   (assert (disease_is Pneumonia))
-))
+)
   
-((defrule Dimorphic_hemmorhoids
+(defrule Dimorphic_hemmorhoids
   (disease_is Dimorphic_hemmorhoids)
   =>
   (printout t "Dimorphic hemmorhoids" crlf)
@@ -460,9 +460,9 @@
   (has_symptom irritation_in_anus)
   =>
   (assert (disease_is Dimorphic_hemmorhoids))
-))
+)
   
-((defrule Heart_attack
+(defrule Heart_attack
   (disease_is Heart_attack)
   =>
   (printout t "Heart attack" crlf)
@@ -475,9 +475,9 @@
   (has_symptom chest_pain)
   =>
   (assert (disease_is Heart_attack))
-))
+)
   
-((defrule Varicose_veins
+(defrule Varicose_veins
   (disease_is Varicose_veins)
   =>
   (printout t "Varicose veins" crlf)
@@ -491,9 +491,9 @@
   (has_symptom swollen_legs)
   =>
   (assert (disease_is Varicose_veins))
-))
+)
   
-((defrule Hypothyroidism
+(defrule Hypothyroidism
   (disease_is Hypothyroidism)
   =>
   (printout t "Hypothyroidism" crlf)
@@ -507,9 +507,9 @@
   (has_symptom lethargy)
   =>
   (assert (disease_is Hypothyroidism))
-))
+)
   
-((defrule Hyperthyroidism
+(defrule Hyperthyroidism
   (disease_is Hyperthyroidism)
   =>
   (printout t "Hyperthyroidism" crlf)
@@ -523,9 +523,9 @@
   (has_symptom sweating)
   =>
   (assert (disease_is Hyperthyroidism))
-))
+)
   
-((defrule Hypoglycemia
+(defrule Hypoglycemia
   (disease_is Hypoglycemia)
   =>
   (printout t "Hypoglycemia" crlf)
@@ -539,9 +539,9 @@
   (has_symptom headache)
   =>
   (assert (disease_is Hypoglycemia))
-))
+)
   
-((defrule Osteoarthristis
+(defrule Osteoarthristis
   (disease_is Osteoarthristis)
   =>
   (printout t "Osteoarthristis" crlf)
@@ -555,9 +555,9 @@
   (has_symptom swelling_joints)
   =>
   (assert (disease_is Osteoarthristis))
-))
+)
   
-((defrule Arthritis
+(defrule Arthritis
   (disease_is Arthritis)
   =>
   (printout t "Arthritis" crlf)
@@ -571,9 +571,9 @@
   (has_symptom painful_walking)
   =>
   (assert (disease_is Arthritis))
-))
+)
   
-((defrule Paroymsal__Positional_Vertigo
+(defrule Paroymsal__Positional_Vertigo
   (disease_is Paroymsal__Positional_Vertigo)
   =>
   (printout t "Paroymsal  Positional Vertigo" crlf)
@@ -587,9 +587,9 @@
   (has_symptom loss_of_balance)
   =>
   (assert (disease_is Paroymsal__Positional_Vertigo))
-))
+)
   
-((defrule Acne
+(defrule Acne
   (disease_is Acne)
   =>
   (printout t "Acne" crlf)
@@ -602,9 +602,9 @@
   (has_symptom scurring)
   =>
   (assert (disease_is Acne))
-))
+)
   
-((defrule Urinary_tract_infection
+(defrule Urinary_tract_infection
   (disease_is Urinary_tract_infection)
   =>
   (printout t "Urinary tract infection" crlf)
@@ -613,13 +613,13 @@
 (defrule is_it_Urinary_tract_infection
   (has_symptom burning_micturition)
   (has_symptom bladder_discomfort)
-  (has_symptom foul_smell_of urine)
+  (has_symptom foul_smell_ofurine)
   (has_symptom continuous_feel_of_urine)
   =>
   (assert (disease_is Urinary_tract_infection))
-))
+)
   
-((defrule Psoriasis
+(defrule Psoriasis
   (disease_is Psoriasis)
   =>
   (printout t "Psoriasis" crlf)
@@ -633,9 +633,9 @@
   (has_symptom small_dents_in_nails)
   =>
   (assert (disease_is Psoriasis))
-))
+)
   
-((defrule Impetigo
+(defrule Impetigo
   (disease_is Impetigo)
   =>
   (printout t "Impetigo" crlf)
@@ -649,5 +649,5 @@
   (has_symptom yellow_crust_ooze)
   =>
   (assert (disease_is Impetigo))
-))
+)
   
