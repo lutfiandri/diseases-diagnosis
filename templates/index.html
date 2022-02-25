@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Diagnoster</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-brand">Diseases Diagnoster</div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      <form action="" method="POST" id="form-add">
+        <label for="symptomInput" class="form-label"
+          >Select all your symptoms (only select from our data)</label
+        >
+        <input
+          class="form-control"
+          list="symptomsDatalist"
+          id="symptomInput"
+          name="symptomInput"
+          placeholder="Type your symptoms..."
+        />
+        <datalist id="symptomsDatalist">
+          {% for symptom in symptomList %}
+          <option value="{{symptom}}"></option>
+          {% endfor %}
+        </datalist>
+        <button
+          type="submit"
+          id="add-symptom"
+          name="action"
+          class="btn btn-secondary mt-2"
+          value="add-symptom"
+        >
+          Add Symptom
+        </button>
+        <button
+          type="submit"
+          id="reset"
+          name="action"
+          class="btn btn-danger mt-2"
+          value="reset"
+        >
+          Reset
+        </button>
+        <button
+          type="submit"
+          id="diagnosis"
+          name="action"
+          class="btn btn-primary mt-2"
+          value="diagnosis"
+        >
+          Diagnosis
+        </button>
+      </form>
+      <div class="mt-2">
+        {% for symptom in symptoms %}
+        <span class="badge rounded-pill bg-secondary">{{symptom}}</span>
+        {% endfor %}
+      </div>
+      {% if diseases|length != 0 %}
+      <p class="mt-4">You probably have one of these diseases</p>
+      <ul class="list-group">
+        {% for disease in diseases %}
+        <li class="list-group-item">{{disease}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </main>
+  </body>
+</html>
