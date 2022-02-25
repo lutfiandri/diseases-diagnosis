@@ -71,8 +71,8 @@ def home():
     symptoms = engine.getSymptoms()
     print(symptoms)
 
-    for fact in engine.env.facts():
-        print(fact)
+    # for fact in engine.env.facts():
+    #     print(fact)
 
     if request.method == 'POST':
         if request.form['action'] == 'reset':
