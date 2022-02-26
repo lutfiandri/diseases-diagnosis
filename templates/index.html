@@ -133,6 +133,8 @@
       form['reset'].addEventListener('click', () => {
         symptoms.clear();
         symptomsBox.innerHTML = '';
+        diseasesBox.innerHTML = '';
+        diseasesTitle.innerHTML = '';
       });
       form['diagnose'].addEventListener('click', () => {
         fetch('/diagnose', {
