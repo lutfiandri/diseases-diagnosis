@@ -1,4 +1,4 @@
-# Diseases Diagnoster
+# Diseases Diagnosis
 
 This site can diagnose several diseases from the symptoms that appear. This site uses an Expert System (a subset of Artificial Intelligence) to predict the disease. Here is the [dataset] that I use.
 
