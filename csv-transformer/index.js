@@ -24,7 +24,7 @@ rl.on('line', (row) => {
   const disease = {
     name: line[0],
     nameWithUnderscore: line[0].split(' ').join('_'),
-    symptoms: line.slice(1, 6).map((symptom) => symptom.replaceAll(' ', '')),
+    symptoms: line.slice(1, 5).map((symptom) => symptom.replaceAll(' ', '')),
   };
 
   const clpFormat = `

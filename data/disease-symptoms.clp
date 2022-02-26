@@ -44,7 +44,6 @@
   (has_symptom acidity)
   (has_symptom ulcers_on_tongue)
   (has_symptom vomiting)
-  (has_symptom cough)
   =>
   (assert (disease_is GERD))
 )
@@ -60,7 +59,6 @@
   (has_symptom vomiting)
   (has_symptom yellowish_skin)
   (has_symptom nausea)
-  (has_symptom loss_of_appetite)
   =>
   (assert (disease_is Chronic_cholestasis))
 )
@@ -76,7 +74,6 @@
   (has_symptom skin_rash)
   (has_symptom stomach_pain)
   (has_symptom burning_micturition)
-  (has_symptom spotting_urination)
   =>
   (assert (disease_is Drug_Reaction))
 )
@@ -92,7 +89,6 @@
   (has_symptom indigestion)
   (has_symptom loss_of_appetite)
   (has_symptom abdominal_pain)
-  (has_symptom passage_of_gases)
   =>
   (assert (disease_is Peptic_ulcer_diseae))
 )
@@ -123,7 +119,6 @@
   (has_symptom weight_loss)
   (has_symptom restlessness)
   (has_symptom lethargy)
-  (has_symptom irregular_sugar_level)
   =>
   (assert (disease_is Diabetes))
 )
@@ -154,7 +149,6 @@
   (has_symptom cough)
   (has_symptom high_fever)
   (has_symptom breathlessness)
-  (has_symptom family_history)
   =>
   (assert (disease_is Bronchial_Asthma))
 )
@@ -170,7 +164,6 @@
   (has_symptom chest_pain)
   (has_symptom dizziness)
   (has_symptom loss_of_balance)
-  (has_symptom lack_of_concentration)
   =>
   (assert (disease_is Hypertension))
 )
@@ -186,7 +179,6 @@
   (has_symptom indigestion)
   (has_symptom headache)
   (has_symptom blurred_and_distorted_vision)
-  (has_symptom excessive_hunger)
   =>
   (assert (disease_is Migraine))
 )
@@ -202,7 +194,6 @@
   (has_symptom weakness_in_limbs)
   (has_symptom neck_pain)
   (has_symptom dizziness)
-  (has_symptom loss_of_balance)
   =>
   (assert (disease_is Cervical_spondylosis))
 )
@@ -233,7 +224,6 @@
   (has_symptom vomiting)
   (has_symptom fatigue)
   (has_symptom weight_loss)
-  (has_symptom high_fever)
   =>
   (assert (disease_is Jaundice))
 )
@@ -249,7 +239,6 @@
   (has_symptom vomiting)
   (has_symptom high_fever)
   (has_symptom sweating)
-  (has_symptom headache)
   =>
   (assert (disease_is Malaria))
 )
@@ -265,7 +254,6 @@
   (has_symptom skin_rash)
   (has_symptom fatigue)
   (has_symptom lethargy)
-  (has_symptom high_fever)
   =>
   (assert (disease_is Chicken_pox))
 )
@@ -281,7 +269,6 @@
   (has_symptom chills)
   (has_symptom joint_pain)
   (has_symptom vomiting)
-  (has_symptom fatigue)
   =>
   (assert (disease_is Dengue))
 )
@@ -297,7 +284,6 @@
   (has_symptom vomiting)
   (has_symptom fatigue)
   (has_symptom high_fever)
-  (has_symptom headache)
   =>
   (assert (disease_is Typhoid))
 )
@@ -313,7 +299,6 @@
   (has_symptom vomiting)
   (has_symptom yellowish_skin)
   (has_symptom dark_urine)
-  (has_symptom nausea)
   =>
   (assert (disease_is hepatitis_A))
 )
@@ -329,7 +314,6 @@
   (has_symptom fatigue)
   (has_symptom lethargy)
   (has_symptom yellowish_skin)
-  (has_symptom dark_urine)
   =>
   (assert (disease_is Hepatitis_B))
 )
@@ -345,7 +329,6 @@
   (has_symptom yellowish_skin)
   (has_symptom nausea)
   (has_symptom loss_of_appetite)
-  (has_symptom yellowing_of_eyes)
   =>
   (assert (disease_is Hepatitis_C))
 )
@@ -361,7 +344,6 @@
   (has_symptom vomiting)
   (has_symptom fatigue)
   (has_symptom yellowish_skin)
-  (has_symptom dark_urine)
   =>
   (assert (disease_is Hepatitis_D))
 )
@@ -377,7 +359,6 @@
   (has_symptom vomiting)
   (has_symptom fatigue)
   (has_symptom high_fever)
-  (has_symptom yellowish_skin)
   =>
   (assert (disease_is Hepatitis_E))
 )
@@ -393,7 +374,6 @@
   (has_symptom yellowish_skin)
   (has_symptom abdominal_pain)
   (has_symptom swelling_of_stomach)
-  (has_symptom distention_of_abdomen)
   =>
   (assert (disease_is Alcoholic_hepatitis))
 )
@@ -409,7 +389,6 @@
   (has_symptom vomiting)
   (has_symptom fatigue)
   (has_symptom weight_loss)
-  (has_symptom cough)
   =>
   (assert (disease_is Tuberculosis))
 )
@@ -425,7 +404,6 @@
   (has_symptom chills)
   (has_symptom fatigue)
   (has_symptom cough)
-  (has_symptom high_fever)
   =>
   (assert (disease_is Common_Cold))
 )
@@ -441,7 +419,6 @@
   (has_symptom fatigue)
   (has_symptom cough)
   (has_symptom high_fever)
-  (has_symptom breathlessness)
   =>
   (assert (disease_is Pneumonia))
 )
@@ -457,7 +434,6 @@
   (has_symptom pain_during_bowel_movements)
   (has_symptom pain_in_anal_region)
   (has_symptom bloody_stool)
-  (has_symptom irritation_in_anus)
   =>
   (assert (disease_is Dimorphic_hemmorhoids))
 )
@@ -488,7 +464,6 @@
   (has_symptom cramps)
   (has_symptom bruising)
   (has_symptom obesity)
-  (has_symptom swollen_legs)
   =>
   (assert (disease_is Varicose_veins))
 )
@@ -504,7 +479,6 @@
   (has_symptom weight_gain)
   (has_symptom cold_hands_and_feets)
   (has_symptom mood_swings)
-  (has_symptom lethargy)
   =>
   (assert (disease_is Hypothyroidism))
 )
@@ -520,7 +494,6 @@
   (has_symptom mood_swings)
   (has_symptom weight_loss)
   (has_symptom restlessness)
-  (has_symptom sweating)
   =>
   (assert (disease_is Hyperthyroidism))
 )
@@ -536,7 +509,6 @@
   (has_symptom fatigue)
   (has_symptom anxiety)
   (has_symptom sweating)
-  (has_symptom headache)
   =>
   (assert (disease_is Hypoglycemia))
 )
@@ -552,7 +524,6 @@
   (has_symptom neck_pain)
   (has_symptom knee_pain)
   (has_symptom hip_joint_pain)
-  (has_symptom swelling_joints)
   =>
   (assert (disease_is Osteoarthristis))
 )
@@ -568,7 +539,6 @@
   (has_symptom stiff_neck)
   (has_symptom swelling_joints)
   (has_symptom movement_stiffness)
-  (has_symptom painful_walking)
   =>
   (assert (disease_is Arthritis))
 )
@@ -584,7 +554,6 @@
   (has_symptom headache)
   (has_symptom nausea)
   (has_symptom spinning_movements)
-  (has_symptom loss_of_balance)
   =>
   (assert (disease_is Paroymsal__Positional_Vertigo))
 )
@@ -630,7 +599,6 @@
   (has_symptom joint_pain)
   (has_symptom skin_peeling)
   (has_symptom silver_like_dusting)
-  (has_symptom small_dents_in_nails)
   =>
   (assert (disease_is Psoriasis))
 )
@@ -646,7 +614,6 @@
   (has_symptom high_fever)
   (has_symptom blister)
   (has_symptom red_sore_around_nose)
-  (has_symptom yellow_crust_ooze)
   =>
   (assert (disease_is Impetigo))
 )
