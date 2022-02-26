@@ -14,9 +14,12 @@ const clpNote = `; -------------------------------------------------------------
 writer.write(clpNote);
 
 const allSymptoms = new Set();
+let lineNumber = 0;
 
 // Write Each Line
 rl.on('line', (row) => {
+  lineNumber++;
+  if (lineNumber === 1) return;
   const line = row
     .split(',')
     .map((i) => i.trim())
