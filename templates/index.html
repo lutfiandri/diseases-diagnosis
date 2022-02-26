@@ -49,7 +49,7 @@
     </nav>
 
     <main class="container py-4">
-      <form action="" method="POST" id="form-add">
+      <form id="form">
         <label for="symptomInput" class="form-label"
           >Select all your symptoms (only select from our data)</label
         >
@@ -66,46 +66,33 @@
           {% endfor %}
         </datalist>
         <button
-          type="submit"
+          type="button"
           id="add-symptom"
-          name="action"
+          name="add-symptom"
           class="btn btn-secondary mt-2"
-          value="add-symptom"
         >
           Add Symptom
         </button>
         <button
-          type="submit"
+          type="button"
           id="reset"
-          name="action"
+          name="reset"
           class="btn btn-danger mt-2"
-          value="reset"
         >
           Reset
         </button>
         <button
-          type="submit"
-          id="diagnosis"
-          name="action"
+          type="button"
+          id="diagnose"
+          name="diagnose"
           class="btn btn-primary mt-2"
-          value="diagnosis"
         >
           Diagnose
         </button>
       </form>
-      <div class="mt-2">
-        {% for symptom in symptoms %}
-        <span class="badge rounded-pill bg-secondary">{{symptom}}</span>
-        {% endfor %}
-      </div>
-      {% if diseases|length != 0 %}
-      <p class="mt-4">You probably have one of these diseases</p>
-      <ul class="list-group">
-        {% for disease in diseases %}
-        <li class="list-group-item">{{disease}}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+      <div class="mt-2" id="symptoms-box"></div>
+      <p class="mt-4" id="diseases-title"></p>
+      <ul class="list-group" id="diseases-box"></ul>
     </main>
     <footer class="mt-4">
       <div class="container">
@@ -124,5 +111,50 @@
         >.
       </div>
     </footer>
+    <script>
+      const form = document.querySelector('form');
+      const symptomInput = form['symptomInput'];
+      const symptomsBox = document.querySelector('#symptoms-box');
+      const diseasesBox = document.querySelector('#diseases-box');
+      const diseasesTitle = document.querySelector('#diseases-title');
+      const symptoms = new Set();
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+      });
+      form['add-symptom'].addEventListener('click', () => {
+        symptoms.add(symptomInput.value);
+        symptomInput.value = '';
+        symptomsBox.innerHTML = '';
+        arr = [...symptoms];
+        arr.forEach((symptom) => {
+          symptomsBox.innerHTML += `<span class="badge rounded-pill bg-secondary me-1">${symptom}</span>`;
+        });
+      });
+      form['reset'].addEventListener('click', () => {
+        symptoms.clear();
+        symptomsBox.innerHTML = '';
+      });
+      form['diagnose'].addEventListener('click', () => {
+        fetch('/diagnose', {
+          method: 'POST',
+          body: JSON.stringify({
+            symptoms: [...symptoms],
+          }),
+        })
+          .then((result) => result.json())
+          .then((result) => {
+            if (result.diseases.length === 0) {
+              diseasesBox.innerHTML = '';
+              diseasesTitle.innerHTML = '';
+              return;
+            }
+            diseasesBox.innerHTML = '';
+            diseasesTitle.innerHTML = `<p>You probably have one of these diseases</p>`;
+            result.diseases.forEach((disease) => {
+              diseasesBox.innerHTML += `<li class="list-group-item">${disease}</li>`;
+            });
+          });
+      });
+    </script>
   </body>
 </html>

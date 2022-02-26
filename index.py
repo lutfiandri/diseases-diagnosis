@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, jsonify
 from clips import Environment
 import os
+import json
 
 
 class DiseaseDiagnoster:
@@ -66,33 +67,35 @@ engine.prepare('disease-symptoms.clp')
 # engine.reset()
 
 
-@app.route('/', methods=('GET', 'POST'))
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    symptoms = engine.getSymptoms()
-    print(symptoms)
+    return render_template('index.html', symptomList=engine.getSymptomList())
 
-    # for fact in engine.env.facts():
-    #     print(fact)
 
-    if request.method == 'POST':
-        if request.form['action'] == 'reset':
-            engine.reset()
-        elif request.form['action'] == 'diagnosis':
-            engine.run()
-        elif request.form['action'] == 'add-symptom':
-            symptomInput = request.form['symptomInput']
-            if symptomInput == '':
-                flash('symptom is required')
-            else:
-                text = symptomInput.replace(" ", "_").lower()
-                engine.addSymptom(text)
+@app.route('/diagnose', methods=['POST'])
+def diagnose():
+    engine.reset()
 
-    return render_template(
-        'index.html',
-        symptomList=engine.getSymptomList(),
-        symptoms=engine.getSymptoms(),
-        diseases=engine.getDiseases()
-    )
+    data = request.get_data(as_text=True)
+    try:
+        data = json.loads(data)
+        for symptom in data['symptoms']:
+            symptom = symptom.replace(' ', '_').lower()
+            engine.addSymptom(symptom)
+
+        engine.run()
+        diseases = engine.getDiseases()
+        for fact in engine.env.facts():
+            print(fact)
+        print(diseases)
+        return jsonify({
+            'status': 'success',
+            'diseases': diseases
+        })
+    except:
+        return jsonify({
+            'status': 'error'
+        })
 
 
 if __name__ == '__main__':
