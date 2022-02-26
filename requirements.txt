@@ -1,3 +1,2 @@
 clipspy==1.0.0
-cowpy==1.0.3
 Flask==2.0.3
