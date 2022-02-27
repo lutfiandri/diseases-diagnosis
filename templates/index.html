@@ -15,10 +15,11 @@
       html,
       body {
         min-height: 100vh;
+        position: relative;
       }
 
       main {
-        position: relative;
+        /* position: relative; */
       }
 
       footer {
@@ -48,7 +49,7 @@
       </div>
     </nav>
 
-    <main class="container py-4">
+    <main class="container pt-4" style="padding-bottom: 80px">
       <form id="form">
         <label for="symptomInput" class="form-label"
           >Select all your symptoms (only select from our data)</label
@@ -92,7 +93,7 @@
       </form>
       <div class="mt-2" id="symptoms-box"></div>
       <p class="mt-4" id="diseases-title"></p>
-      <ul class="list-group" id="diseases-box"></ul>
+      <div id="diseases-box"></div>
     </main>
     <footer class="mt-4">
       <div class="container">
@@ -141,20 +142,53 @@
           method: 'POST',
           body: JSON.stringify({
             symptoms: [...symptoms],
+            // symptoms: [
+            //   'Vomiting',
+            //   'Dark Urine',
+            //   'Fatigue',
+            //   'Yellowish Skin',
+            //   'Joint Pain',
+            //   'Itching',
+            //   'Lethargy',
+            // ],
           }),
         })
           .then((result) => result.json())
           .then((result) => {
+            // console.log(result);
             if (result.diseases.length === 0) {
+              diseasesTitle.innerHTML = `<p>Your disease is not detected, please add more symptom(s)</p>`;
               diseasesBox.innerHTML = '';
-              diseasesTitle.innerHTML = '';
               return;
             }
             diseasesBox.innerHTML = '';
             diseasesTitle.innerHTML = `<p>You probably have one of these diseases</p>`;
             result.diseases.forEach((disease) => {
-              diseasesBox.innerHTML += `<li class="list-group-item">${disease}</li>`;
+              diseasesBox.innerHTML += `
+              <div class="card mb-2">
+                <div class="card-body">
+                  <h5 class="card-title">${disease?.name}</h5>
+                  <p class="card-text">
+                    ${disease?.description}
+                  </p>
+                  <p class="card-text">Precautions:</p>
+                  <ul id="precaution-ul-${disease?.name}">
+                    ${(() => {
+                      text = '';
+                      disease?.precautions.forEach(
+                        (p) => (text += `<li>${p}</li>`)
+                      );
+                      return text;
+                    })()}
+                  </ul>
+                </div>
+              </div>
+              `;
             });
+          })
+          .catch((err) => {
+            console.log(err);
+            alert('sorry, there is an error');
           });
       });
     </script>

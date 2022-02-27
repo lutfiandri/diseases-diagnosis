@@ -4,10 +4,10 @@ import os
 import json
 
 
-class DiseaseDiagnoster:
-    def prepare(self, clpFile):
+class DiseaseDiagnosis:
+    def prepare(self):
         self.dataPath = os.path.abspath(os.path.join(os.getcwd(), 'data'))
-        diseasePath = os.path.join(self.dataPath, clpFile)
+        diseasePath = os.path.join(self.dataPath, 'disease-symptoms.clp')
         self.env = Environment()
         self.env.load(diseasePath)
 
@@ -59,12 +59,64 @@ class DiseaseDiagnoster:
         return symptoms
 
 
+class DiseaseInfo:
+    def __init__(self):
+        self.decsriptions = self.getDescriptions()
+        self.precautions = self.getPrecautions()
+
+    def detail(self, diseases):
+        data = []
+        for disease in diseases:
+            x = disease.lower().strip().replace(" ", "_")
+            oneData = {
+                'name': disease,
+                'description': self.decsriptions[x],
+                'precautions': self.precautions[x]
+            }
+            data.append(oneData)
+        return data
+
+    def getDescriptions(self):
+        data = {}
+        f = open("./data/disease-description.csv", "r")
+        counter = 0
+        for x in f:
+            counter += 1
+            if counter <= 1:
+                continue
+            x = x.strip().split(',')
+            x[0] = x[0].lower().strip().replace(" ", "_")
+            x[1] = ",".join(x[1:]).replace("\"", "")
+            data[x[0]] = x[1]
+        return data
+
+    def getPrecautions(self):
+        data = {}
+        f = open("./data/disease-precaution.csv", "r")
+        counter = 0
+        for x in f:
+            counter += 1
+            if counter <= 1:
+                continue
+            x = x.strip().split(',')
+            x[0] = x[0].lower().strip().replace(" ", "_")
+            precautions = []
+            for i in range(1, len(x)):
+                precaution = x[i].strip().capitalize()
+                if precaution != "":
+                    precautions.append(precaution)
+
+            data[x[0]] = precautions
+        return data
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24).hex()
 
-engine = DiseaseDiagnoster()
-engine.prepare('disease-symptoms.clp')
-# engine.reset()
+engine = DiseaseDiagnosis()
+engine.prepare()
+
+info = DiseaseInfo()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -85,12 +137,10 @@ def diagnose():
 
         engine.run()
         diseases = engine.getDiseases()
-        for fact in engine.env.facts():
-            print(fact)
-        print(diseases)
+
         return jsonify({
             'status': 'success',
-            'diseases': diseases
+            'diseases': info.detail(diseases)
         })
     except:
         return jsonify({
